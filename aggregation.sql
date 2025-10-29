@@ -28,4 +28,10 @@ select count(*)as TotalCount from CustomerTransactions where transaction_status 
 select count(*)as TotalCount from CustomerTransactions where transaction_status in('Failed','Pending')
 select count(*)as TotalCount from CustomerTransactions where transaction_status  not in('Failed','Pending')
 
+select min(amount) as min_amount from CustomerTransactions  ;
+select max(amount) as max_amount from CustomerTransactions  ;
+select avg(amount) as avg_amount from CustomerTransactions  ;
+select login_device,sum(amount) as revenue from CustomerTransactions  group by login_device
+select login_device ,sum(amount) as revenue from CustomerTransactions  group by login_device Having sum(amount)>10000
+select login_device ,sum(amount) as revenue from CustomerTransactions  where  amount>10000 group by login_device 
 
